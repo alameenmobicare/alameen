@@ -157,7 +157,7 @@ function draw(){
  document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>printLabels([b.dataset.p]));
  document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{if(confirm("Delete this order permanently?"))deleteDoc(doc(db,"orders",b.dataset.d))});
 }
-const lab=o=>'<div class="lb"><b>SHIP TO</b><br><big><b>'+esc(o.name)+'</b></big><br>'+esc(o.address)+'<br>'+esc(o.district)+', '+esc(o.state)+'<br><b>PIN: '+esc(o.pin)+'</b><br>📞 '+esc(o.phone)+(o.whatsapp?' / WA '+esc(o.whatsapp):'')+(o.remarks?'<br>Note: '+esc(o.remarks):'')+'<hr><small>Order '+esc(o.orderId)+' · From: Al Ameen Mobi Care</small></div>';
+const lab=o=>'<div class="lb"><b>SHIP TO</b><br><big><b>'+esc(o.name)+'</b></big><br>'+esc(o.address)+'<br>'+esc(o.district)+', '+esc(o.state)+'<br><b>PIN: '+esc(o.pin)+'</b><br>📞 '+esc(o.phone)+(o.whatsapp?' / WA '+esc(o.whatsapp):'')+(o.remarks?'<br>Note: '+esc(o.remarks):'')+'<hr><small>Order '+esc(o.orderId)+' · From: Al Ameen Mobi Care <br>📞+91 9778771725</small></div>';
 async function printLabels(ids){
  const l=orders.filter(o=>ids.includes(o.orderId));
  if(!l.length){toast("No orders to print");return}
